@@ -1,0 +1,16 @@
+{"level":"error","message":"All notification methods failed","results":[],"service":"contact-api","timestamp":"2025-11-08T03:33:49.572Z"}
+{"level":"error","message":"All notification methods failed","results":[],"service":"contact-api","timestamp":"2025-11-08T03:34:46.920Z"}
+{"level":"error","message":"All notification methods failed","results":[],"service":"contact-api","timestamp":"2025-11-08T03:35:09.117Z"}
+{"level":"error","message":"All notification methods failed","results":[],"service":"contact-api","timestamp":"2025-11-08T03:35:35.696Z"}
+{"level":"error","message":"All notification methods failed","results":[],"service":"contact-api","timestamp":"2025-11-08T03:35:56.174Z"}
+{"level":"error","message":"All notification methods failed","results":[],"service":"contact-api","timestamp":"2025-11-08T04:21:41.142Z"}
+{"level":"error","message":"All notification methods failed","results":[],"service":"contact-api","timestamp":"2025-11-08T04:22:50.618Z"}
+{"level":"error","message":"All notification methods failed","results":[],"service":"contact-api","timestamp":"2025-11-08T04:33:09.834Z"}
+{"level":"error","message":"All notification methods failed","results":[],"service":"contact-api","timestamp":"2025-11-08T04:36:04.333Z"}
+{"level":"error","message":"All notification methods failed","results":[],"service":"contact-api","timestamp":"2025-11-08T04:36:40.239Z"}
+{"level":"error","message":"All notification methods failed","results":[],"service":"contact-api","timestamp":"2025-11-08T04:37:13.031Z"}
+{"level":"error","message":"All notification methods failed","results":[],"service":"contact-api","timestamp":"2025-11-08T04:37:47.705Z"}
+{"level":"error","message":"All notification methods failed","results":[],"service":"contact-api","timestamp":"2025-11-08T04:44:53.344Z"}
+{"level":"error","message":"All notification methods failed","results":[],"service":"contact-api","timestamp":"2025-11-08T04:46:40.324Z"}
+{"error":"Forbidden","level":"error","message":"Email sending failed","service":"contact-api","timestamp":"2025-11-08T04:59:34.360Z"}
+{"error":"Forbidden","level":"error","message":"Email notification failed","service":"contact-api","stack":"Error: Forbidden\n    at c:\\Users\\ashis\\OneDrive\\Desktop\\npy\\academy-website\\backend\\server.js:338:19\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2025-11-08T04:59:34.363Z"}
