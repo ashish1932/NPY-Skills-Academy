@@ -395,18 +395,24 @@
 .hamburger {
   display: none;
   flex-direction: column;
-  justify-content: space-around;
-  width: 48px;
-  height: 48px;
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+  justify-content: center;
+  align-items: center;
+  width: 52px;
+  height: 52px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 249, 250, 0.95) 100%);
   border: 2px solid rgba(102, 126, 234, 0.2);
   cursor: pointer;
-  padding: 10px;
-  margin-left: 1.5rem;
-  border-radius: 8px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 12px;
+  margin-left: 1rem;
+  border-radius: 12px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.1);
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .hamburger::before {
@@ -418,27 +424,40 @@
   bottom: 0;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: -1;
+  border-radius: 10px;
 }
 
 .hamburger:focus {
-  outline: 3px solid #667eea;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.3), 0 4px 15px rgba(102, 126, 234, 0.2);
+}
+
+.hamburger:focus-visible {
+  outline: 2px solid #667eea;
   outline-offset: 2px;
 }
 
 .hamburger:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.25);
+  border-color: rgba(102, 126, 234, 0.4);
 }
 
 .hamburger:hover::before {
   opacity: 0.1;
 }
 
+.hamburger:active {
+  transform: translateY(0) scale(0.98);
+  transition: all 0.1s ease;
+}
+
 .hamburger.hamburger-open {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  border-color: #667eea;
+  border-color: rgba(102, 126, 234, 0.8);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
 }
 
 .hamburger.hamburger-open::before {
@@ -446,28 +465,69 @@
 }
 
 .hamburger span {
-  width: 32px;
+  width: 28px;
   height: 3px;
-  background: #2d3748;
+  background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
   border-radius: 2px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   transform-origin: center;
   position: relative;
+  margin: 2px 0;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.hamburger span:nth-child(1) {
+  transition-delay: 0.1s;
+}
+
+.hamburger span:nth-child(2) {
+  transition-delay: 0.2s;
+}
+
+.hamburger span:nth-child(3) {
+  transition-delay: 0.3s;
+}
+
+.hamburger.hamburger-open span {
+  background: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 .hamburger.hamburger-open span:nth-child(1) {
-  transform: rotate(45deg) translate(6px, 6px);
-  background: white;
+  transform: rotate(45deg) translate(6px, 6px) scaleX(0.8);
+  transition-delay: 0.1s;
 }
 
 .hamburger.hamburger-open span:nth-child(2) {
   opacity: 0;
-  transform: scaleX(0);
+  transform: scaleX(0) rotate(180deg);
+  transition-delay: 0s;
 }
 
 .hamburger.hamburger-open span:nth-child(3) {
-  transform: rotate(-45deg) translate(6px, -6px);
-  background: white;
+  transform: rotate(-45deg) translate(6px, -6px) scaleX(0.8);
+  transition-delay: 0.1s;
+}
+
+/* Enhanced ripple effect for touch feedback */
+.hamburger::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hamburger:active::after {
+  width: 60px;
+  height: 60px;
 }
 
 /* Mobile Styles */
@@ -567,8 +627,8 @@
   /* Mobile dropdowns - accordion style */
   .dropdown-menu {
     position: static;
-    opacity: 1;
-    visibility: visible;
+    opacity: 0;
+    visibility: hidden;
     transform: none;
     background: linear-gradient(135deg, rgba(248, 249, 250, 0.95) 0%, rgba(255, 255, 255, 0.95) 100%);
     backdrop-filter: blur(10px);
@@ -579,12 +639,15 @@
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
     min-width: auto;
     overflow: hidden;
+    max-height: 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .dropdown-menu.show {
     opacity: 1;
     visibility: visible;
     transform: none;
+    max-height: 1000px;
   }
 
   .dropdown-item {
@@ -686,14 +749,21 @@
   }
 
   .hamburger {
-    width: 48px;
-    height: 48px;
-    margin-left: 0.5rem;
+    width: 50px;
+    height: 50px;
+    margin-left: 0.75rem;
+    padding: 11px;
   }
 
   .hamburger span {
-    width: 32px;
+    width: 26px;
     height: 3px;
+    margin: 2px 0;
+  }
+
+  .hamburger:active::after {
+    width: 55px;
+    height: 55px;
   }
 
   .dropdown-toggle {

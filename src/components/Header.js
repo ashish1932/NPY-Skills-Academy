@@ -137,7 +137,7 @@ const Header = () => {
           </Link>
         </div>
 
-        <nav className={`nav ${isMenuOpen ? 'nav-open' : ''}`} role="navigation" aria-label="Main navigation">
+        <nav id="main-navigation" className={`nav ${isMenuOpen ? 'nav-open' : ''}`} role="navigation" aria-label="Main navigation">
           <ul className="nav-list">
             {navItems.map((item) => (
               <li key={item.path} className="nav-item">
@@ -219,8 +219,15 @@ const Header = () => {
         <button
           className={`hamburger ${isMenuOpen ? 'hamburger-open' : ''}`}
           onClick={toggleMenu}
-          aria-label="Toggle menu"
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              toggleMenu();
+            }
+          }}
+          aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={isMenuOpen}
+          aria-controls="main-navigation"
         >
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>

@@ -24,3 +24,6 @@
 {"level":"info","message":"Email notification sent successfully","service":"contact-api","subject":"New Contact Form Submission from same","timestamp":"2025-11-08T05:08:23.625Z","to":"ashishkumar1932005@gmail.com"}
 {"level":"info","message":"Email sent successfully","messageId":"8lO747L2ROitR_kzOdQy7g","service":"contact-api","timestamp":"2025-11-08T05:16:36.252Z"}
 {"level":"info","message":"Email notification sent successfully","service":"contact-api","subject":"New Contact Form Submission from Ashish Kumar","timestamp":"2025-11-08T05:16:36.252Z","to":"ashishkumar1932005@gmail.com"}
+{"level":"info","message":"Server running on port 5000","service":"contact-api","timestamp":"2025-11-08T06:50:50.145Z"}
+{"error":"Unauthorized","level":"error","message":"Email sending failed","service":"contact-api","timestamp":"2025-11-08T10:53:07.974Z"}
+{"level":"info","message":"Server running on port 5000","service":"contact-api","timestamp":"2025-11-11T08:00:43.867Z"}
